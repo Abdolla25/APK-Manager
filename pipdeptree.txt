@@ -1,0 +1,16 @@
+black==24.8.0
+├── click [required: >=8.0.0, installed: 8.1.7]
+├── mypy-extensions [required: >=0.4.3, installed: 1.0.0]
+├── packaging [required: >=22.0, installed: 24.1]
+├── pathspec [required: >=0.9.0, installed: 0.12.1]
+├── platformdirs [required: >=2, installed: 4.2.2]
+├── tomli [required: >=1.1.0, installed: 2.0.1]
+└── typing_extensions [required: >=4.0.1, installed: 4.12.2]
+Django==4.2.15
+├── asgiref [required: >=3.6.0,<4, installed: 3.8.1]
+│   └── typing_extensions [required: >=4, installed: 4.12.2]
+└── sqlparse [required: >=0.3.1, installed: 0.5.1]
+pipdeptree==2.23.1
+├── packaging [required: >=23.1, installed: 24.1]
+└── pip [required: >=23.1.2, installed: 24.2]
+setuptools==58.1.0
