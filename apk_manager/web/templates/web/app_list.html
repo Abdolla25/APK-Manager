@@ -1,0 +1,13 @@
+<h2>App List</h2>
+<p>Number of apps: {{ apps.count }}</p>
+<p><a href="{% url 'app_upload' %}">Upload New App</a></p>
+
+<ul>
+  {% for app in apps %}
+  <li><a href="{% url 'app_detail' app.pk %}">{{ app.name }}</a></li>
+  {% endfor %}
+</ul>
+
+<p><a href="{% url 'app_upload' %}">Upload App</a></p>
+<p><a href="{% url 'index' %}">Home</a></p>
+<p><a href="{% url 'logout' %}">Logout</a></p>

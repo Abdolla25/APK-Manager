@@ -13,6 +13,7 @@ Django==4.2.15
 gunicorn==23.0.0
 └── packaging [required: Any, installed: 24.1]
 mysqlclient==2.2.4
+pillow==10.4.0
 pipdeptree==2.23.1
 ├── packaging [required: >=23.1, installed: 24.1]
 └── pip [required: >=23.1.2, installed: 24.2]

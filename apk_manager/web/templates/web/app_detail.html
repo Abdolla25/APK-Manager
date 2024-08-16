@@ -1,0 +1,18 @@
+<h2>App: {{ app.name }} Details</h2>
+
+<p>Name: {{ app.name }}</p>
+<p>Version: {{ app.version }}</p>
+<p>Uploaded By: {{ app.uploaded_by.username }}</p>
+<img src="{{ app.first_screen_screenshot }}" alt="First Screen Screenshot" />
+<img src="{{ app.second_screen_screenshot }}" alt="Second Screen Screenshot" />
+<video src="{{ app.video_recording }}" controls></video>
+<img src="{{ app.ui_hierarchy }}" alt="UI Hierarchy" />
+<p>Screen Changed: {{ app.screen_changed }}</p>
+<p>Uploaded At: {{ app.created_at }}</p>
+<p>Last Updated At: {{ app.updated_at }}</p>
+
+<p><a href="{% url 'app_delete' app.pk %}">Delete App</a></p>
+
+<p><a href="{% url 'app_list' %}">App List</a></p>
+<p><a href="{% url 'index' %}">Home</a></p>
+<p><a href="{% url 'logout' %}">Logout</a></p>
