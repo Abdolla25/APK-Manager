@@ -17,5 +17,9 @@ pillow==10.4.0
 pipdeptree==2.23.1
 ├── packaging [required: >=23.1, installed: 24.1]
 └── pip [required: >=23.1.2, installed: 24.2]
+pyaxmlparser==0.3.31
+├── asn1crypto [required: >=0.24.0, installed: 1.5.1]
+├── click [required: >=6.7, installed: 8.1.7]
+└── lxml [required: Any, installed: 5.3.0]
 python-dotenv==1.0.1
 setuptools==58.1.0

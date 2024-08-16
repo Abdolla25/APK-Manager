@@ -1,9 +1,12 @@
+import os
+from django.conf import settings
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from .forms import SignUpForm, ProfileForm, AppForm
 from .models import Profile, App
+from .utils import extract_apk_metadata
 
 
 def index_view(request):
@@ -71,6 +74,12 @@ def app_upload_view(request):
         if form.is_valid():
             app = form.save(commit=False)
             app.uploaded_by = request.user
+            app.save()
+
+            apk_path = os.path.join(settings.MEDIA_ROOT, app.apk_file.name)
+            metadata = extract_apk_metadata(apk_path)
+            app.name = f"{metadata['name']} - {metadata['package_name']}"
+            app.version = metadata["version"]
             app.save()
             return redirect("app_list")
     else:
