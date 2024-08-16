@@ -10,7 +10,11 @@ Django==4.2.15
 ├── asgiref [required: >=3.6.0,<4, installed: 3.8.1]
 │   └── typing_extensions [required: >=4, installed: 4.12.2]
 └── sqlparse [required: >=0.3.1, installed: 0.5.1]
+gunicorn==23.0.0
+└── packaging [required: Any, installed: 24.1]
+mysqlclient==2.2.4
 pipdeptree==2.23.1
 ├── packaging [required: >=23.1, installed: 24.1]
 └── pip [required: >=23.1.2, installed: 24.2]
+python-dotenv==1.0.1
 setuptools==58.1.0
