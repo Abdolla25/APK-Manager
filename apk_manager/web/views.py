@@ -20,6 +20,7 @@ def signup_view(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
+            messages.success(request, "You have been signed up.")
             return redirect("profile")
     else:
         form = SignUpForm()
@@ -32,6 +33,7 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
+            messages.success(request, "You have been logged in.")
             return redirect("profile")
     else:
         form = AuthenticationForm()
@@ -51,6 +53,7 @@ def profile_edit_view(request):
         form = ProfileForm(request.POST, instance=profile)
         if form.is_valid():
             form.save()
+            messages.success(request, "Profile has been updated.")
             return redirect("profile")
     else:
         form = ProfileForm(instance=profile)
@@ -59,6 +62,7 @@ def profile_edit_view(request):
 
 def logout_view(request):
     logout(request)
+    messages.success(request, "You have been logged out.")
     return redirect("index")
 
 
@@ -82,6 +86,7 @@ def app_upload_view(request):
             app.name = f"{metadata['name']} - {metadata['package_name']}"
             app.version = metadata["version"]
             app.save()
+            messages.success(request, "App has been uploaded.")
             return redirect("app_list")
     else:
         form = AppForm()
@@ -99,6 +104,7 @@ def app_delete_view(request, pk):
     app = get_object_or_404(App, pk=pk, uploaded_by=request.user)
     if request.method == "POST":
         app.delete()
+        messages.success(request, "App has been deleted.")
         return redirect("app_list")
     return render(request, "web/app_confirm_delete.html", {"app": app})
 

@@ -1,10 +1,30 @@
-<h2>Home</h2>
-{% if user.is_authenticated %}
-<p>Welcome, {{ user.username }}!</p>
-<p><a href="{% url 'profile' %}">View Profile</a></p>
-<p><a href="{% url 'app_list' %}">App List</a></p>
-<p><a href="{% url 'logout' %}">Logout</a></p>
-{% else %}
-<p>You are not logged in.</p>
-<p><a href="{% url 'login' %}">Login</a></p>
-{% endif %}
+{% extends "web/base.html" %}
+{% block title %}
+    Home
+{% endblock title %}
+{% block content %}
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to Apk Manager</h1>
+        <p class="lead">This is a platform for managing and testing android apps.</p>
+        <hr class="my-4">
+        {% if user.is_authenticated %}
+            <p class="lead">
+                <a class="btn btn-primary btn-lg"
+                   href="{% url 'app_list' %}"
+                   role="button">App List</a>
+            </p>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg"
+                   href="{% url 'profile' %}"
+                   role="button">View Profile</a>
+            </p>
+            <p class="lead">
+                <a class="btn btn-danger btn-lg" href="{% url 'logout' %}" role="button">Logout</a>
+            </p>
+        {% else %}
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">Login</a>
+            </p>
+        {% endif %}
+    </div>
+{% endblock content %}

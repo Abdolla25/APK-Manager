@@ -1,21 +1,53 @@
-<h2>App: {{ app.name }} Details</h2>
-
-{% for message in messages %} {{ message }} {% endfor %}
-
-<p>Name: {{ app.name }}</p>
-<p>Version: {{ app.version }}</p>
-<p>Uploaded By: {{ app.uploaded_by.username }}</p>
-<img src="{{ app.first_screen_screenshot }}" alt="First Screen Screenshot" />
-<img src="{{ app.second_screen_screenshot }}" alt="Second Screen Screenshot" />
-<video src="{{ app.video_recording }}" controls></video>
-<img src="{{ app.ui_hierarchy }}" alt="UI Hierarchy" />
-<p>Screen Changed: {{ app.screen_changed }}</p>
-<p>Uploaded At: {{ app.created_at }}</p>
-<p>Last Updated At: {{ app.updated_at }}</p>
-
-<p><a href="{% url 'app_run' app.pk %}">Run App</a></p>
-<p><a href="{% url 'app_delete' app.pk %}">Delete App</a></p>
-
-<p><a href="{% url 'app_list' %}">App List</a></p>
-<p><a href="{% url 'index' %}">Home</a></p>
-<p><a href="{% url 'logout' %}">Logout</a></p>
+{% extends "web/base.html" %}
+{% block title %}
+    App Detail
+{% endblock title %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-center">App: {{ app.name }} Details</h2>
+                {% for message in messages %}<div class="alert alert-{{ message.tags }}">{{ message }}</div>{% endfor %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="text-center">Name: {{ app.name }}</p>
+                <p class="text-center">Version: {{ app.version }}</p>
+                <p class="text-center">Uploaded By: {{ app.uploaded_by.username }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <img src="{{ app.first_screen_screenshot }}"
+                     class="img-fluid"
+                     alt="First Screen Screenshot" />
+            </div>
+            <div class="col-md-4">
+                <img src="{{ app.second_screen_screenshot }}"
+                     class="img-fluid"
+                     alt="Second Screen Screenshot" />
+            </div>
+            <div class="col-md-4">
+                <video src="{{ app.video_recording }}" controls class="img-fluid">
+                </video>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="text-center">Screen Changed: {{ app.screen_changed }}</p>
+                <p class="text-center">Uploaded At: {{ app.created_at }}</p>
+                <p class="text-center">Last Updated At: {{ app.updated_at }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <a class="btn btn-primary" href="{% url 'app_run' app.pk %}">Run App</a>
+                <a class="btn btn-danger" href="{% url 'app_delete' app.pk %}">Delete App</a>
+                <a class="btn btn-secondary" href="{% url 'app_list' %}">App List</a>
+                <a class="btn btn-secondary" href="{% url 'index' %}">Home</a>
+                <a class="btn btn-secondary" href="{% url 'logout' %}">Logout</a>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,8 +1,29 @@
-<h2>App Upload</h2>
-<form method="post" enctype="multipart/form-data">
-  {% csrf_token %} {{ form.as_p }}
-  <button type="submit">Upload</button>
-</form>
-<p><a href="{% url 'app_list' %}">App List</a></p>
-<p><a href="{% url 'index' %}">Home</a></p>
-<p><a href="{% url 'logout' %}">Logout</a></p>
+{% extends "web/base.html" %}
+{% block title %}
+  App Upload
+{% endblock title %}
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="card mt-5">
+          <div class="card-body">
+            <h2 class="card-title text-center">App Upload</h2>
+            <form method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-3">
+                <button type="submit" class="btn btn-primary btn-lg">Upload</button>
+              </div>
+            </form>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-3">
+              <a href="{% url 'app_list' %}" class="btn btn-info btn-lg">App List</a>
+              <a href="{% url 'index' %}" class="btn btn-secondary btn-lg">Home</a>
+              <a href="{% url 'logout' %}" class="btn btn-danger btn-lg">Logout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
