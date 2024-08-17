@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from .forms import SignUpForm, ProfileForm, AppForm
 from .models import Profile, App
 from .utils import extract_apk_metadata
@@ -100,3 +101,26 @@ def app_delete_view(request, pk):
         app.delete()
         return redirect("app_list")
     return render(request, "web/app_confirm_delete.html", {"app": app})
+
+
+def app_run_view(request, pk):
+    from .appium_utils import test_android_run
+    import threading
+
+    app = get_object_or_404(App, pk=pk)
+    threading.Thread(
+        target=test_android_run,
+        kwargs={
+            "apk_path": os.path.join(settings.MEDIA_ROOT, app.apk_file.name),
+            "device_id": os.environ.get("ANDROID_DEVICE_ID"),
+            "app_package": app.name.split(" - ")[1],
+            "app": app,
+            "screenshot_path": os.path.join(settings.MEDIA_ROOT, "screenshots"),
+            "recording_path": os.path.join(settings.MEDIA_ROOT, "recordings"),
+        },
+    ).start()
+    messages.success(
+        request,
+        "App has been started on the device. Check the app page for updates within 5 minutes.",
+    )
+    return redirect("app_detail", pk=pk)

@@ -9,6 +9,16 @@ services:
     volumes:
       - db_data:/var/lib/mysql
 
+  appium:
+    image: appium/appium
+    ports:
+      - "4723:4723"
+    volumes:
+      - ./apk_manager/media:/code/media
+    environment:
+      - REMOTE_ADB=true
+      - ANDROID_DEVICES=${ANDROID_DEVICE_ID}
+
   web:
     build: .
     command: gunicorn --bind :8000 apk_manager.wsgi:application --reload
@@ -18,6 +28,7 @@ services:
       - "8000:8000"
     depends_on:
       - db
+      - appium
     environment:
       - MYSQL_HOST=${MYSQL_HOST}
       - MYSQL_DATABASE=${MYSQL_DATABASE}
@@ -26,6 +37,9 @@ services:
       - MYSQL_PORT=${MYSQL_PORT}
       - SECRET_KEY=${SECRET_KEY}
       - DEBUG=${DEBUG}
+      - APPIUM_HOST=${APPIUM_HOST}
+      - APPIUM_PORT=${APPIUM_PORT}
+      - ANDROID_DEVICE_ID=${ANDROID_DEVICE_ID}
 
 volumes:
   db_data:

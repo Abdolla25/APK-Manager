@@ -10,6 +10,7 @@ from .views import (
     app_upload_view,
     app_detail_view,
     app_delete_view,
+    app_run_view,
 )
 
 urlpatterns = [
@@ -23,4 +24,5 @@ urlpatterns = [
     path("apps/upload/", app_upload_view, name="app_upload"),
     path("apps/<int:pk>/", app_detail_view, name="app_detail"),
     path("apps/<int:pk>/delete/", app_delete_view, name="app_delete"),
+    path("apps/<int:pk>/run/", app_run_view, name="app_run"),
 ]
