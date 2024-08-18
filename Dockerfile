@@ -11,6 +11,7 @@ COPY requirements.txt /code/
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY ./apk_manager /code/
+RUN mkdir -p /code/media/apks /code/media/recordings /code/media/screenshots
 
 EXPOSE 8000
 
