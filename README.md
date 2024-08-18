@@ -1,6 +1,8 @@
 # APK Manager
 APK Manager is a Django-based web application designed to manage and evaluate Android APK files. The application provides features such as user authentication, APK metadata extraction, app evaluation using Appium, accessibility options, multilingual support, and more.
 
+![APK Manager Home Page](screenshots/home_page.png)
+
 # Features
 - User Authentication & Management: Secure login and registration system.
 - APK Metadata Extraction: Extract essential metadata from APK files using pyaxmlparser.
@@ -175,6 +177,11 @@ apk_manager/
 ├── requirements.txt     # Python dependencies
 └── README.md            # Project documentation
 ```
+
+# Screenshots
+
+Screenshots of the application can be found in the [screenshots.md](screenshots.md) file.
+
 
 # Contributing
 Contributions are welcome! Please submit a pull request or open an issue to discuss your ideas or report bugs.
