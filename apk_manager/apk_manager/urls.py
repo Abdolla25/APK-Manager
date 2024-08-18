@@ -20,7 +20,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path("web/", include("web.urls"), name="web"),
+    path("", include("web.urls"), name="web"),
     path("i18n/", include("django.conf.urls.i18n")),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
