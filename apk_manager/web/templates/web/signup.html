@@ -6,20 +6,24 @@
   <div class="container my-5">
     <div class="row justify-content-center">
       <div class="col-md-6">
-        <div class="card">
+        <div class="card" role="region" aria-label="Sign Up Form">
           <h5 class="card-header bg-primary text-white">Sign Up</h5>
           <div class="card-body">
-            <form method="post">
+            <form method="post" aria-label="Sign Up Form">
               {% csrf_token %}
               {{ form.as_p }}
               <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-3">
-                <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
+                <button type="submit" class="btn btn-primary btn-lg" aria-label="Sign Up">Sign Up</button>
               </div>
             </form>
           </div>
           <div class="card-footer bg-light">
-            <a href="{% url 'login' %}" class="btn btn-info btn-lg">Login</a>
-            <a href="{% url 'index' %}" class="btn btn-secondary btn-lg">Home</a>
+            <a href="{% url 'login' %}"
+               class="btn btn-info btn-lg"
+               aria-label="Login">Login</a>
+            <a href="{% url 'index' %}"
+               class="btn btn-secondary btn-lg"
+               aria-label="Home">Home</a>
           </div>
         </div>
       </div>

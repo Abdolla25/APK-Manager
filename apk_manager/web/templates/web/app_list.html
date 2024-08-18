@@ -9,19 +9,27 @@
         <h2 class="text-center">App List</h2>
         <p class="text-center">Number of apps: {{ apps.count }}</p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-          <a href="{% url 'app_upload' %}" class="btn btn-primary btn-lg">Upload New App</a>
+          <a href="{% url 'app_upload' %}"
+             class="btn btn-primary btn-lg"
+             aria-label="Upload New App">Upload New App</a>
         </div>
-        <ul class="list-group mt-4">
+        <ul class="list-group mt-4" role="list">
           {% for app in apps %}
-            <li class="list-group-item">
-              <a href="{% url 'app_detail' app.pk %}">{{ app.name }}</a>
+            <li class="list-group-item" role="listitem">
+              <a href="{% url 'app_detail' app.pk %}" aria-label="{{ app.name }}">{{ app.name }}</a>
             </li>
           {% endfor %}
         </ul>
         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-          <a href="{% url 'app_upload' %}" class="btn btn-primary btn-lg mt-4">Upload App</a>
-          <a href="{% url 'index' %}" class="btn btn-secondary btn-lg mt-4">Home</a>
-          <a href="{% url 'logout' %}" class="btn btn-danger btn-lg mt-4">Logout</a>
+          <a href="{% url 'app_upload' %}"
+             class="btn btn-primary btn-lg mt-4"
+             aria-label="Upload App">Upload App</a>
+          <a href="{% url 'index' %}"
+             class="btn btn-secondary btn-lg mt-4"
+             aria-label="Home">Home</a>
+          <a href="{% url 'logout' %}"
+             class="btn btn-danger btn-lg mt-4"
+             aria-label="Logout">Logout</a>
         </div>
       </div>
     </div>

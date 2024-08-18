@@ -11,19 +11,27 @@
             <p class="lead">
                 <a class="btn btn-primary btn-lg"
                    href="{% url 'app_list' %}"
-                   role="button">App List</a>
+                   role="button"
+                   aria-label="Go to App List">App List</a>
             </p>
             <p class="lead">
                 <a class="btn btn-primary btn-lg"
                    href="{% url 'profile' %}"
-                   role="button">View Profile</a>
+                   role="button"
+                   aria-label="View Profile">View Profile</a>
             </p>
             <p class="lead">
-                <a class="btn btn-danger btn-lg" href="{% url 'logout' %}" role="button">Logout</a>
+                <a class="btn btn-danger btn-lg"
+                   href="{% url 'logout' %}"
+                   role="button"
+                   aria-label="Logout">Logout</a>
             </p>
         {% else %}
             <p class="lead">
-                <a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">Login</a>
+                <a class="btn btn-primary btn-lg"
+                   href="{% url 'login' %}"
+                   role="button"
+                   aria-label="Login">Login</a>
             </p>
         {% endif %}
     </div>

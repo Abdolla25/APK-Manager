@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid py-2">
-    <a class="navbar-brand" href="{% url 'index' %}">APK Manager</a>
+    <a class="navbar-brand"
+       href="{% url 'index' %}"
+       aria-label="APK Manager">APK Manager</a>
     <button class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
@@ -13,39 +15,125 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+          <a class="nav-link active"
+             aria-current="page"
+             href="{% url 'index' %}"
+             aria-label="Home">Home</a>
         </li>
         {% if user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'app_list' %}">App List</a>
+            <a class="nav-link" href="{% url 'app_list' %}" aria-label="App List">App List</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle"
                href="#"
                role="button"
                data-bs-toggle="dropdown"
-               aria-expanded="false">{{ user.username }}</a>
+               aria-expanded="false"
+               aria-label="User Profile">{{ user.username }}</a>
             <ul class="dropdown-menu">
               <li>
-                <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
+                <a class="dropdown-item"
+                   href="{% url 'profile' %}"
+                   aria-label="View Profile">Profile</a>
               </li>
               <li>
                 <hr class="dropdown-divider">
               </li>
               <li>
-                <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                <a class="dropdown-item" href="{% url 'logout' %}" aria-label="Logout">Logout</a>
               </li>
             </ul>
           </li>
         {% else %}
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}">Login</a>
+            <a class="nav-link" href="{% url 'login' %}" aria-label="Login">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+            <a class="nav-link" href="{% url 'signup' %}" aria-label="Sign Up">Sign Up</a>
           </li>
         {% endif %}
       </ul>
+      <div class="d-flex">
+        <button class="btn btn-outline-secondary me-2"
+                id="increase-font"
+                aria-label="Increase Font Size">A+</button>
+        <button class="btn btn-outline-secondary me-2"
+                id="decrease-font"
+                aria-label="Decrease Font Size">A-</button>
+        <button class="btn btn-outline-secondary me-2"
+                id="reset-font"
+                aria-label="Reset Font Size">Reset</button>
+        <button class="btn btn-outline-dark mx-2"
+                id="high-contrast"
+                aria-label="Toggle High Contrast Mode">
+          <svg xmlns="http://www.w3.org/2000/svg"
+               width="16"
+               height="16"
+               fill="currentColor"
+               class="bi bi-circle-half"
+               viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 0 8 1zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16" />
+          </svg>
+        </button>
+        <select class="form-select" id="language-select" aria-label="Language select">
+          <option selected value="en">English</option>
+          <option value="fr">French</option>
+        </select>
+      </div>
     </div>
   </div>
 </nav>
+{% block scripts %}
+  <script>
+  const fontIncreaseButton = document.getElementById('increase-font');
+  const fontDecreaseButton = document.getElementById('decrease-font');
+  const fontResetButton = document.getElementById('reset-font');
+  const highContrastButton = document.getElementById('high-contrast');
+  const languageSelect = document.getElementById('language-select');
+
+  fontIncreaseButton.addEventListener('click', () => {
+    document.body.style.fontSize = `${parseFloat(document.body.style.fontSize || 100) + 10}%`;
+  });
+
+  fontDecreaseButton.addEventListener('click', () => {
+    document.body.style.fontSize = `${parseFloat(document.body.style.fontSize || 100) - 10}%`;
+  });
+
+  fontResetButton.addEventListener('click', () => {
+    document.body.style.fontSize = '100%';
+  });
+
+  let highContrastToggled = false;
+  highContrastButton.addEventListener('click', () => {
+    highContrastToggled = !highContrastToggled;
+    if (highContrastToggled) {
+      document.body.style.backgroundColor = 'black';
+      document.body.style.color = 'white';
+      let paragraphs = document.querySelectorAll('p');
+      let buttons = document.querySelectorAll('.btn');
+      buttons.forEach(button => {
+          button.style.backgroundColor = 'white';
+          button.style.color = 'black';
+      });
+      let navbar = document.querySelector('.navbar');
+      navbar.style.backgroundColor = 'black';
+    } else {
+      document.body.style.backgroundColor = '';
+      document.body.style.color = '';
+      let buttons = document.querySelectorAll('.btn');
+      buttons.forEach(button => {
+          button.style.backgroundColor = '';
+          button.style.color = '';
+      });
+      let navbar = document.querySelector('.navbar');
+      navbar.style.backgroundColor = '';
+    }
+  });
+
+  languageSelect.addEventListener('change', (event) => {
+    const lang = event.target.value;
+    document.body.className = lang;
+  });
+  </script>
+{% endblock scripts %}

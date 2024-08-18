@@ -6,16 +6,25 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <div class="card">
+                <div class="card" role="region" aria-label="Profile Information">
                     <h5 class="card-header bg-primary text-white">Profile</h5>
                     <div class="card-body">
                         <p>Username: {{ profile.user.username }}</p>
                         <p>Email: {{ profile.user.email }}</p>
                         <p>Bio: {{ profile.bio }}</p>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                            <a href="{% url 'profile_edit' %}" class="btn btn-primary">Edit Profile</a>
-                            <a href="{% url 'index' %}" class="btn btn-secondary">Home</a>
-                            <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+                            <a href="{% url 'profile_edit' %}"
+                               class="btn btn-primary"
+                               role="button"
+                               aria-label="Edit Profile">Edit Profile</a>
+                            <a href="{% url 'index' %}"
+                               class="btn btn-secondary"
+                               role="link"
+                               aria-label="Home">Home</a>
+                            <a href="{% url 'logout' %}"
+                               class="btn btn-danger"
+                               role="link"
+                               aria-label="Logout">Logout</a>
                         </div>
                     </div>
                 </div>

@@ -6,20 +6,31 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 offset-md-3">
-        <div class="card mt-5">
-          <div class="card-body">
-            <h2 class="card-title text-center">App Upload</h2>
-            <form method="post" enctype="multipart/form-data">
+        <div class="card mt-5"
+             role="dialog"
+             aria-labelledby="upload-app-header"
+             aria-describedby="upload-app-body">
+          <div class="card-body" id="upload-app-body">
+            <h2 class="card-title text-center" id="upload-app-header">App Upload</h2>
+            <form method="post"
+                  enctype="multipart/form-data"
+                  aria-label="Upload App Form">
               {% csrf_token %}
               {{ form.as_p }}
               <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-3">
-                <button type="submit" class="btn btn-primary btn-lg">Upload</button>
+                <button type="submit" class="btn btn-primary btn-lg" aria-label="Upload App">Upload</button>
               </div>
             </form>
             <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-3">
-              <a href="{% url 'app_list' %}" class="btn btn-info btn-lg">App List</a>
-              <a href="{% url 'index' %}" class="btn btn-secondary btn-lg">Home</a>
-              <a href="{% url 'logout' %}" class="btn btn-danger btn-lg">Logout</a>
+              <a href="{% url 'app_list' %}"
+                 class="btn btn-info btn-lg"
+                 aria-label="App List">App List</a>
+              <a href="{% url 'index' %}"
+                 class="btn btn-secondary btn-lg"
+                 aria-label="Home">Home</a>
+              <a href="{% url 'logout' %}"
+                 class="btn btn-danger btn-lg"
+                 aria-label="Logout">Logout</a>
             </div>
           </div>
         </div>
