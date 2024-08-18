@@ -1,0 +1,335 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-18 03:52+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: apk_manager/settings.py:122 web/templates/web/navbar.html:90
+msgid "English"
+msgstr "English"
+
+#: apk_manager/settings.py:122 web/templates/web/navbar.html:91
+msgid "French"
+msgstr "French"
+
+#: web/templates/web/app_confirm_delete.html:4
+#: web/templates/web/app_confirm_delete.html:14
+#: web/templates/web/app_detail.html:55
+msgid "Delete App"
+msgstr "Delete App"
+
+#: web/templates/web/app_confirm_delete.html:16
+msgid "Delete"
+msgstr "Delete"
+
+#: web/templates/web/app_confirm_delete.html:17
+msgid "Are you sure you want to delete this app?"
+msgstr "Are you sure you want to delete this app?"
+
+#: web/templates/web/app_confirm_delete.html:20
+msgid "Yes, delete"
+msgstr "Yes, delete"
+
+#: web/templates/web/app_confirm_delete.html:23
+msgid "Cancel"
+msgstr "Cancel"
+
+#: web/templates/web/app_confirm_delete.html:29
+#: web/templates/web/app_detail.html:59 web/templates/web/app_list.html:3
+#: web/templates/web/app_list.html:9 web/templates/web/app_upload.html:29
+#: web/templates/web/index.html:15 web/templates/web/navbar.html:27
+#: web/views.py:77
+msgid "App List"
+msgstr "App List"
+
+#: web/templates/web/app_confirm_delete.html:30
+#: web/templates/web/app_detail.html:63 web/templates/web/app_list.html:29
+#: web/templates/web/app_upload.html:32 web/templates/web/index.html:3
+#: web/templates/web/login.html:29 web/templates/web/navbar.html:21
+#: web/templates/web/profile.html:25 web/templates/web/profile_edit.html:42
+#: web/templates/web/signup.html:28 web/views.py:15
+msgid "Home"
+msgstr "Home"
+
+#: web/templates/web/app_confirm_delete.html:31
+#: web/templates/web/app_detail.html:67 web/templates/web/app_list.html:32
+#: web/templates/web/app_upload.html:35 web/templates/web/index.html:27
+#: web/templates/web/navbar.html:48 web/templates/web/profile.html:29
+#: web/templates/web/profile_edit.html:47
+msgid "Logout"
+msgstr "Logout"
+
+#: web/templates/web/app_detail.html:3 web/views.py:107
+msgid "App Detail"
+msgstr "App Detail"
+
+#: web/templates/web/app_detail.html:9
+msgid "App:"
+msgstr "App:"
+
+#: web/templates/web/app_detail.html:9
+msgid "Details"
+msgstr "Details"
+
+#: web/templates/web/app_detail.html:15
+msgid "Name:"
+msgstr "Name:"
+
+#: web/templates/web/app_detail.html:16
+msgid "Version:"
+msgstr "Version:"
+
+#: web/templates/web/app_detail.html:17
+msgid "Uploaded By:"
+msgstr "Uploaded By:"
+
+#: web/templates/web/app_detail.html:24
+msgid "First Screen Screenshot"
+msgstr "First Screen Screenshot"
+
+#: web/templates/web/app_detail.html:29
+msgid "Second Screen Screenshot"
+msgstr "Second Screen Screenshot"
+
+#: web/templates/web/app_detail.html:35
+msgid "Video Recording"
+msgstr "Video Recording"
+
+#: web/templates/web/app_detail.html:41
+msgid "Screen Changed:"
+msgstr "Screen Changed:"
+
+#: web/templates/web/app_detail.html:42
+msgid "Uploaded At:"
+msgstr "Uploaded At:"
+
+#: web/templates/web/app_detail.html:43
+msgid "Last Updated At:"
+msgstr "Last Updated At:"
+
+#: web/templates/web/app_detail.html:51
+msgid "Run App"
+msgstr "Run App"
+
+#: web/templates/web/app_list.html:10
+msgid "Number of apps:"
+msgstr "Number of apps:"
+
+#: web/templates/web/app_list.html:14
+msgid "Upload New App"
+msgstr "Upload New App"
+
+#: web/templates/web/app_list.html:26 web/templates/web/app_upload.html:23
+msgid "Upload App"
+msgstr "Upload App"
+
+#: web/templates/web/app_upload.html:3 web/templates/web/app_upload.html:14
+#: web/views.py:99
+msgid "App Upload"
+msgstr "App Upload"
+
+#: web/templates/web/app_upload.html:17
+msgid "Upload App Form"
+msgstr "Upload App Form"
+
+#: web/templates/web/app_upload.html:23
+msgid "Upload"
+msgstr "Upload"
+
+#: web/templates/web/footer.html:5
+msgid "About Us"
+msgstr "About Us"
+
+#: web/templates/web/footer.html:6
+msgid "Apk Manager is a platform for managing and testing android apps."
+msgstr "Apk Manager is a platform for managing and testing android apps."
+
+#: web/templates/web/footer.html:9
+msgid "Follow Us"
+msgstr "Follow Us"
+
+#: web/templates/web/footer.html:11
+msgid "You can follow us on our social media profiles:"
+msgstr "You can follow us on our social media profiles:"
+
+#: web/templates/web/footer.html:41
+msgid "2024 - Abdulla Zahran. All Rights Reserved."
+msgstr "2024 - Abdulla Zahran. All Rights Reserved."
+
+#: web/templates/web/index.html:7
+msgid "Welcome to Apk Manager"
+msgstr "Welcome to Apk Manager"
+
+#: web/templates/web/index.html:8
+msgid "This is a platform for managing and testing android apps."
+msgstr "This is a platform for managing and testing android apps."
+
+#: web/templates/web/index.html:15
+msgid "Go to App List"
+msgstr "Go to App List"
+
+#: web/templates/web/index.html:
+#: web/templates/web/index.html:21 web/templates/web/navbar.html:40
+#: web/templates/web/profile_edit.html:37
+msgid "View Profile"
+msgstr "View Profile"
+
+#: web/templates/web/index.html:34 web/templates/web/login.html:3
+#: web/templates/web/login.html:13 web/templates/web/login.html:20
+#: web/templates/web/navbar.html:56 web/templates/web/signup.html:25
+#: web/views.py:41
+msgid "Login"
+msgstr "Login"
+
+#: web/templates/web/login.html:15
+msgid "Login Form"
+msgstr "Login Form"
+
+#: web/templates/web/login.html:26 web/templates/web/navbar.html:61
+#: web/templates/web/signup.html:3 web/templates/web/signup.html:10
+#: web/templates/web/signup.html:18 web/views.py:28
+msgid "Sign Up"
+msgstr "Sign Up"
+
+#: web/templates/web/navbar.html:5
+msgid "APK Manager"
+msgstr "APK Manager"
+
+#: web/templates/web/navbar.html:12
+msgid "Toggle navigation"
+msgstr "Toggle navigation"
+
+#: web/templates/web/navbar.html:35
+msgid "User Profile"
+msgstr "User Profile"
+
+#: web/templates/web/navbar.html:40 web/templates/web/profile.html:3
+#: web/templates/web/profile.html:12 web/views.py:48
+msgid "Profile"
+msgstr "Profile"
+
+#: web/templates/web/navbar.html:68
+msgid "Increase Font Size"
+msgstr "Increase Font Size"
+
+#: web/templates/web/navbar.html:71
+msgid "Decrease Font Size"
+msgstr "Decrease Font Size"
+
+#: web/templates/web/navbar.html:74
+msgid "Reset Font Size"
+msgstr "Reset Font Size"
+
+#: web/templates/web/navbar.html:74
+msgid "Reset"
+msgstr "Reset"
+
+#: web/templates/web/navbar.html:77
+msgid "Toggle High Contrast Mode"
+msgstr "Toggle High Contrast Mode"
+
+#: web/templates/web/navbar.html:89
+msgid "Language select"
+msgstr "Language select"
+
+#: web/templates/web/profile.html:11
+msgid "Profile Information"
+msgstr "Profile Information"
+
+#: web/templates/web/profile.html:14 web/templates/web/profile_edit.html:15
+msgid "Username:"
+msgstr "Username:"
+
+#: web/templates/web/profile.html:15 web/templates/web/profile_edit.html:19
+msgid "Email:"
+msgstr "Email:"
+
+#: web/templates/web/profile.html:16 web/templates/web/profile_edit.html:23
+msgid "Bio:"
+msgstr "Bio:"
+
+#: web/templates/web/profile.html:21
+msgid "Edit Profile"
+msgstr "Edit Profile"
+
+#: web/templates/web/profile_edit.html:3 web/templates/web/profile_edit.html:10
+#: web/views.py:64
+msgid "Profile Edit"
+msgstr "Profile Edit"
+
+#: web/templates/web/profile_edit.html:12
+msgid "Profile Edit Form"
+msgstr "Profile Edit Form"
+
+#: web/templates/web/profile_edit.html:15
+msgid "Username"
+msgstr "Username"
+
+#: web/templates/web/profile_edit.html:19
+msgid "Email"
+msgstr "Email"
+
+#: web/templates/web/profile_edit.html:23
+msgid "Bio"
+msgstr "Bio"
+
+#: web/templates/web/profile_edit.html:29
+msgid "Save Profile"
+msgstr "Save Profile"
+
+#: web/templates/web/profile_edit.html:29
+msgid "Save"
+msgstr "Save"
+
+#: web/templates/web/signup.html:9 web/templates/web/signup.html:12
+msgid "Sign Up Form"
+msgstr "Sign Up Form"
+
+#: web/views.py:24
+msgid "You have been signed up."
+msgstr "You have been signed up."
+
+#: web/views.py:37
+msgid "You have been logged in."
+msgstr "You have been logged in."
+
+#: web/views.py:59
+msgid "Profile has been updated."
+msgstr "Profile has been updated."
+
+#: web/views.py:70
+msgid "You have been logged out."
+msgstr "You have been logged out."
+
+#: web/views.py:94
+msgid "App has been uploaded."
+msgstr "App has been uploaded."
+
+#: web/views.py:116
+msgid "App has been deleted."
+msgstr "App has been deleted."
+
+#: web/views.py:119
+msgid "App Delete"
+msgstr "App Delete"
+
+#: web/views.py:142
+msgid ""
+"App has been started on the device. Check the app page for updates within 5 "
+"minutes."
+msgstr ""
+"App has been started on the device. Check the app page for updates within 5 "
+"minutes."

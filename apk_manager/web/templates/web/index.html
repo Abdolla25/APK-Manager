@@ -1,37 +1,38 @@
 {% extends "web/base.html" %}
+{% load i18n %}
 {% block title %}
-    Home
+    {% trans "Home" %}
 {% endblock title %}
 {% block content %}
     <div class="jumbotron">
-        <h1 class="display-4">Welcome to Apk Manager</h1>
-        <p class="lead">This is a platform for managing and testing android apps.</p>
+        <h1 class="display-4">{% trans "Welcome to Apk Manager" %}</h1>
+        <p class="lead">{% trans "This is a platform for managing and testing android apps." %}</p>
         <hr class="my-4">
         {% if user.is_authenticated %}
             <p class="lead">
                 <a class="btn btn-primary btn-lg"
                    href="{% url 'app_list' %}"
                    role="button"
-                   aria-label="Go to App List">App List</a>
+                   aria-label="{% trans "Go to App List" %}">{% trans "App List" %}</a>
             </p>
             <p class="lead">
                 <a class="btn btn-primary btn-lg"
                    href="{% url 'profile' %}"
                    role="button"
-                   aria-label="View Profile">View Profile</a>
+                   aria-label="{% trans "View Profile" %}">{% trans "View Profile" %}</a>
             </p>
             <p class="lead">
                 <a class="btn btn-danger btn-lg"
                    href="{% url 'logout' %}"
                    role="button"
-                   aria-label="Logout">Logout</a>
+                   aria-label="{% trans "Logout" %}">{% trans "Logout" %}</a>
             </p>
         {% else %}
             <p class="lead">
                 <a class="btn btn-primary btn-lg"
                    href="{% url 'login' %}"
                    role="button"
-                   aria-label="Login">Login</a>
+                   aria-label="{% trans "Login" %}">{% trans "Login" %}</a>
             </p>
         {% endif %}
     </div>

@@ -1,30 +1,33 @@
 {% extends "web/base.html" %}
+{% load i18n %}
 {% block title %}
-    Profile
+    {% trans "Profile" %}
 {% endblock title %}
 {% block content %}
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <div class="card" role="region" aria-label="Profile Information">
-                    <h5 class="card-header bg-primary text-white">Profile</h5>
+                <div class="card"
+                     role="region"
+                     aria-label="{% trans "Profile Information" %}">
+                    <h5 class="card-header bg-primary text-white">{% trans "Profile" %}</h5>
                     <div class="card-body">
-                        <p>Username: {{ profile.user.username }}</p>
-                        <p>Email: {{ profile.user.email }}</p>
-                        <p>Bio: {{ profile.bio }}</p>
+                        <p>{% trans "Username:" %} {{ profile.user.username }}</p>
+                        <p>{% trans "Email:" %} {{ profile.user.email }}</p>
+                        <p>{% trans "Bio:" %} {{ profile.bio }}</p>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
                             <a href="{% url 'profile_edit' %}"
                                class="btn btn-primary"
                                role="button"
-                               aria-label="Edit Profile">Edit Profile</a>
+                               aria-label="{% trans "Edit Profile" %}">{% trans "Edit Profile" %}</a>
                             <a href="{% url 'index' %}"
                                class="btn btn-secondary"
                                role="link"
-                               aria-label="Home">Home</a>
+                               aria-label="{% trans "Home" %}">{% trans "Home" %}</a>
                             <a href="{% url 'logout' %}"
                                class="btn btn-danger"
                                role="link"
-                               aria-label="Logout">Logout</a>
+                               aria-label="{% trans "Logout" %}">{% trans "Logout" %}</a>
                         </div>
                     </div>
                 </div>

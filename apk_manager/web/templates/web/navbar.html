@@ -1,15 +1,16 @@
+{% load i18n %}
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid py-2">
     <a class="navbar-brand"
        href="{% url 'index' %}"
-       aria-label="APK Manager">APK Manager</a>
+       aria-label="{% trans "APK Manager" %}">{% trans "APK Manager" %}</a>
     <button class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent"
             aria-expanded="false"
-            aria-label="Toggle navigation">
+            aria-label="{% trans "Toggle navigation" %}">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -18,11 +19,13 @@
           <a class="nav-link active"
              aria-current="page"
              href="{% url 'index' %}"
-             aria-label="Home">Home</a>
+             aria-label="{% trans "Home" %}">{% trans "Home" %}</a>
         </li>
         {% if user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'app_list' %}" aria-label="App List">App List</a>
+            <a class="nav-link"
+               href="{% url 'app_list' %}"
+               aria-label="{% trans "App List" %}">{% trans "App List" %}</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle"
@@ -30,43 +33,49 @@
                role="button"
                data-bs-toggle="dropdown"
                aria-expanded="false"
-               aria-label="User Profile">{{ user.username }}</a>
+               aria-label="{% trans "User Profile" %}">{{ user.username }}</a>
             <ul class="dropdown-menu">
               <li>
                 <a class="dropdown-item"
                    href="{% url 'profile' %}"
-                   aria-label="View Profile">Profile</a>
+                   aria-label="{% trans "View Profile" %}">{% trans "Profile" %}</a>
               </li>
               <li>
                 <hr class="dropdown-divider">
               </li>
               <li>
-                <a class="dropdown-item" href="{% url 'logout' %}" aria-label="Logout">Logout</a>
+                <a class="dropdown-item"
+                   href="{% url 'logout' %}"
+                   aria-label="{% trans "Logout" %}">{% trans "Logout" %}</a>
               </li>
             </ul>
           </li>
         {% else %}
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}" aria-label="Login">Login</a>
+            <a class="nav-link"
+               href="{% url 'login' %}"
+               aria-label="{% trans "Login" %}">{% trans "Login" %}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'signup' %}" aria-label="Sign Up">Sign Up</a>
+            <a class="nav-link"
+               href="{% url 'signup' %}"
+               aria-label="{% trans "Sign Up" %}">{% trans "Sign Up" %}</a>
           </li>
         {% endif %}
       </ul>
       <div class="d-flex">
         <button class="btn btn-outline-secondary me-2"
                 id="increase-font"
-                aria-label="Increase Font Size">A+</button>
+                aria-label="{% trans "Increase Font Size" %}">A+</button>
         <button class="btn btn-outline-secondary me-2"
                 id="decrease-font"
-                aria-label="Decrease Font Size">A-</button>
+                aria-label="{% trans "Decrease Font Size" %}">A-</button>
         <button class="btn btn-outline-secondary me-2"
                 id="reset-font"
-                aria-label="Reset Font Size">Reset</button>
+                aria-label="{% trans "Reset Font Size" %}">{% trans "Reset" %}</button>
         <button class="btn btn-outline-dark mx-2"
                 id="high-contrast"
-                aria-label="Toggle High Contrast Mode">
+                aria-label="{% trans "Toggle High Contrast Mode" %}">
           <svg xmlns="http://www.w3.org/2000/svg"
                width="16"
                height="16"
@@ -76,10 +85,17 @@
             <path d="M8 15A7 7 0 1 0 8 1zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16" />
           </svg>
         </button>
-        <select class="form-select" id="language-select" aria-label="Language select">
-          <option selected value="en">English</option>
-          <option value="fr">French</option>
-        </select>
+        <form method="post" action="{% url 'set_language' %}">
+          {% csrf_token %}
+          <select name="language"
+                  onchange="this.form.submit()"
+                  class="form-select"
+                  id="language-select"
+                  aria-label="{% trans "Language select" %}">
+            <option value="en" {% if request.LANGUAGE_CODE == 'en' %}selected{% endif %}>{% trans "English" %}</option>
+            <option value="fr" {% if request.LANGUAGE_CODE == 'fr' %}selected{% endif %}>{% trans "French" %}</option>
+          </select>
+        </form>
       </div>
     </div>
   </div>

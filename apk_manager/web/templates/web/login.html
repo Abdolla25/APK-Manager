@@ -1,6 +1,7 @@
 {% extends "web/base.html" %}
+{% load i18n %}
 {% block title %}
-  Login
+  {% trans "Login" %}
 {% endblock title %}
 {% block content %}
   <div class="container my-5">
@@ -10,19 +11,23 @@
              role="dialog"
              aria-labelledby="login-header"
              aria-describedby="login-body">
-          <h5 class="card-header bg-primary text-white" id="login-header">Login</h5>
+          <h5 class="card-header bg-primary text-white" id="login-header">{% trans "Login" %}</h5>
           <div class="card-body" id="login-body">
-            <form method="post" aria-label="Login Form">
+            <form method="post" aria-label="{% trans "Login Form" %}">
               {% csrf_token %}
               {{ form.as_p }}
-              <button type="submit" class="btn btn-primary" aria-label="Login">Login</button>
+              <button type="submit"
+                      class="btn btn-primary"
+                      aria-label="{% trans "Login" %}">{% trans "Login" %}</button>
             </form>
           </div>
           <div class="card-footer bg-light">
             <a href="{% url 'signup' %}"
                class="btn btn-secondary"
-               aria-label="Sign Up">Sign Up</a>
-            <a href="{% url 'index' %}" class="btn btn-primary" aria-label="Home">Home</a>
+               aria-label="{% trans "Sign Up" %}">{% trans "Sign Up" %}</a>
+            <a href="{% url 'index' %}"
+               class="btn btn-primary"
+               aria-label="{% trans "Home" %}">{% trans "Home" %}</a>
           </div>
         </div>
       </div>

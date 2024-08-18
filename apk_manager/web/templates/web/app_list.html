@@ -1,17 +1,18 @@
 {% extends "web/base.html" %}
+{% load i18n %}
 {% block title %}
-  App List
+  {% trans "App List" %}
 {% endblock title %}
 {% block content %}
   <div class="container">
     <div class="row my-4">
       <div class="col-12 col-md-6 offset-md-3">
-        <h2 class="text-center">App List</h2>
-        <p class="text-center">Number of apps: {{ apps.count }}</p>
+        <h2 class="text-center">{% trans "App List" %}</h2>
+        <p class="text-center">{% trans "Number of apps:" %} {{ apps.count }}</p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
           <a href="{% url 'app_upload' %}"
              class="btn btn-primary btn-lg"
-             aria-label="Upload New App">Upload New App</a>
+             aria-label="{% trans "Upload New App" %}">{% trans "Upload New App" %}</a>
         </div>
         <ul class="list-group mt-4" role="list">
           {% for app in apps %}
@@ -23,13 +24,13 @@
         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
           <a href="{% url 'app_upload' %}"
              class="btn btn-primary btn-lg mt-4"
-             aria-label="Upload App">Upload App</a>
+             aria-label="{% trans "Upload App" %}">{% trans "Upload App" %}</a>
           <a href="{% url 'index' %}"
              class="btn btn-secondary btn-lg mt-4"
-             aria-label="Home">Home</a>
+             aria-label="{% trans "Home" %}">{% trans "Home" %}</a>
           <a href="{% url 'logout' %}"
              class="btn btn-danger btn-lg mt-4"
-             aria-label="Logout">Logout</a>
+             aria-label="{% trans "Logout" %}">{% trans "Logout" %}</a>
         </div>
       </div>
     </div>

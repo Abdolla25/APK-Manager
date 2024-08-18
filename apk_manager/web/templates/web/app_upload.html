@@ -1,6 +1,7 @@
 {% extends "web/base.html" %}
+{% load i18n %}
 {% block title %}
-  App Upload
+  {% trans "App Upload" %}
 {% endblock title %}
 {% block content %}
   <div class="container">
@@ -11,26 +12,28 @@
              aria-labelledby="upload-app-header"
              aria-describedby="upload-app-body">
           <div class="card-body" id="upload-app-body">
-            <h2 class="card-title text-center" id="upload-app-header">App Upload</h2>
+            <h2 class="card-title text-center" id="upload-app-header">{% trans "App Upload" %}</h2>
             <form method="post"
                   enctype="multipart/form-data"
-                  aria-label="Upload App Form">
+                  aria-label="{% trans "Upload App Form" %}">
               {% csrf_token %}
               {{ form.as_p }}
               <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-3">
-                <button type="submit" class="btn btn-primary btn-lg" aria-label="Upload App">Upload</button>
+                <button type="submit"
+                        class="btn btn-primary btn-lg"
+                        aria-label="{% trans "Upload App" %}">{% trans "Upload" %}</button>
               </div>
             </form>
             <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-3">
               <a href="{% url 'app_list' %}"
                  class="btn btn-info btn-lg"
-                 aria-label="App List">App List</a>
+                 aria-label="{% trans "App List" %}">{% trans "App List" %}</a>
               <a href="{% url 'index' %}"
                  class="btn btn-secondary btn-lg"
-                 aria-label="Home">Home</a>
+                 aria-label="{% trans "Home" %}">{% trans "Home" %}</a>
               <a href="{% url 'logout' %}"
                  class="btn btn-danger btn-lg"
-                 aria-label="Logout">Logout</a>
+                 aria-label="{% trans "Logout" %}">{% trans "Logout" %}</a>
             </div>
           </div>
         </div>

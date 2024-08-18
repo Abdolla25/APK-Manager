@@ -5,13 +5,14 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.utils.translation import gettext_lazy as _
 from .forms import SignUpForm, ProfileForm, AppForm
 from .models import Profile, App
 from .utils import extract_apk_metadata
 
 
 def index_view(request):
-    return render(request, "web/index.html")
+    return render(request, "web/index.html", {"title": _("Home")})
 
 
 def signup_view(request):
@@ -20,11 +21,11 @@ def signup_view(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            messages.success(request, "You have been signed up.")
+            messages.success(request, _("You have been signed up."))
             return redirect("profile")
     else:
         form = SignUpForm()
-    return render(request, "web/signup.html", {"form": form})
+    return render(request, "web/signup.html", {"form": form, "title": _("Sign Up")})
 
 
 def login_view(request):
@@ -33,17 +34,19 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            messages.success(request, "You have been logged in.")
+            messages.success(request, _("You have been logged in."))
             return redirect("profile")
     else:
         form = AuthenticationForm()
-    return render(request, "web/login.html", {"form": form})
+    return render(request, "web/login.html", {"form": form, "title": _("Login")})
 
 
 @login_required(login_url="login")
 def profile_view(request):
     profile, created = Profile.objects.get_or_create(user=request.user)
-    return render(request, "web/profile.html", {"profile": profile})
+    return render(
+        request, "web/profile.html", {"profile": profile, "title": _("Profile")}
+    )
 
 
 @login_required(login_url="login")
@@ -53,23 +56,25 @@ def profile_edit_view(request):
         form = ProfileForm(request.POST, instance=profile)
         if form.is_valid():
             form.save()
-            messages.success(request, "Profile has been updated.")
+            messages.success(request, _("Profile has been updated."))
             return redirect("profile")
     else:
         form = ProfileForm(instance=profile)
-    return render(request, "web/profile_edit.html", {"form": form})
+    return render(
+        request, "web/profile_edit.html", {"form": form, "title": _("Profile Edit")}
+    )
 
 
 def logout_view(request):
     logout(request)
-    messages.success(request, "You have been logged out.")
+    messages.success(request, _("You have been logged out."))
     return redirect("index")
 
 
 @login_required(login_url="login")
 def app_list_view(request):
     apps = App.objects.filter(uploaded_by=request.user)
-    return render(request, "web/app_list.html", {"apps": apps})
+    return render(request, "web/app_list.html", {"apps": apps, "title": _("App List")})
 
 
 @login_required(login_url="login")
@@ -86,17 +91,21 @@ def app_upload_view(request):
             app.name = f"{metadata['name']} - {metadata['package_name']}"
             app.version = metadata["version"]
             app.save()
-            messages.success(request, "App has been uploaded.")
+            messages.success(request, _("App has been uploaded."))
             return redirect("app_list")
     else:
         form = AppForm()
-    return render(request, "web/app_upload.html", {"form": form})
+    return render(
+        request, "web/app_upload.html", {"form": form, "title": _("App Upload")}
+    )
 
 
 @login_required(login_url="login")
 def app_detail_view(request, pk):
     app = get_object_or_404(App, pk=pk, uploaded_by=request.user)
-    return render(request, "web/app_detail.html", {"app": app})
+    return render(
+        request, "web/app_detail.html", {"app": app, "title": _("App Detail")}
+    )
 
 
 @login_required(login_url="login")
@@ -104,9 +113,11 @@ def app_delete_view(request, pk):
     app = get_object_or_404(App, pk=pk, uploaded_by=request.user)
     if request.method == "POST":
         app.delete()
-        messages.success(request, "App has been deleted.")
+        messages.success(request, _("App has been deleted."))
         return redirect("app_list")
-    return render(request, "web/app_confirm_delete.html", {"app": app})
+    return render(
+        request, "web/app_confirm_delete.html", {"app": app, "title": _("App Delete")}
+    )
 
 
 def app_run_view(request, pk):
@@ -127,6 +138,8 @@ def app_run_view(request, pk):
     ).start()
     messages.success(
         request,
-        "App has been started on the device. Check the app page for updates within 5 minutes.",
+        _(
+            "App has been started on the device. Check the app page for updates within 5 minutes."
+        ),
     )
     return redirect("app_detail", pk=pk)

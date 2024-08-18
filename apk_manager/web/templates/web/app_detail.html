@@ -1,46 +1,47 @@
 {% extends "web/base.html" %}
+{% load i18n %}
 {% block title %}
-    App Detail
+    {% trans "App Detail" %}
 {% endblock title %}
 {% block content %}
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="text-center">App: {{ app.name }} Details</h2>
+                <h2 class="text-center">{% trans "App:" %} {{ app.name }} {% trans "Details" %}</h2>
                 {% for message in messages %}<div class="alert alert-{{ message.tags }}" role="alert">{{ message }}</div>{% endfor %}
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <p class="text-center">Name: {{ app.name }}</p>
-                <p class="text-center">Version: {{ app.version }}</p>
-                <p class="text-center">Uploaded By: {{ app.uploaded_by.username }}</p>
+                <p class="text-center">{% trans "Name:" %} {{ app.name }}</p>
+                <p class="text-center">{% trans "Version:" %} {{ app.version }}</p>
+                <p class="text-center">{% trans "Uploaded By:" %} {{ app.uploaded_by.username }}</p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-4">
                 <img src="{{ app.first_screen_screenshot }}"
                      class="img-fluid"
-                     alt="First Screen Screenshot" />
+                     alt="{% trans "First Screen Screenshot" %}" />
             </div>
             <div class="col-md-4">
                 <img src="{{ app.second_screen_screenshot }}"
                      class="img-fluid"
-                     alt="Second Screen Screenshot" />
+                     alt="{% trans "Second Screen Screenshot" %}" />
             </div>
             <div class="col-md-4">
                 <video src="{{ app.video_recording }}"
                        controls
                        class="img-fluid"
-                       aria-label="Video Recording">
+                       aria-label="{% trans "Video Recording" %}">
                 </video>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                <p class="text-center">Screen Changed: {{ app.screen_changed }}</p>
-                <p class="text-center">Uploaded At: {{ app.created_at }}</p>
-                <p class="text-center">Last Updated At: {{ app.updated_at }}</p>
+                <p class="text-center">{% trans "Screen Changed:" %} {{ app.screen_changed }}</p>
+                <p class="text-center">{% trans "Uploaded At:" %} {{ app.created_at }}</p>
+                <p class="text-center">{% trans "Last Updated At:" %} {{ app.updated_at }}</p>
             </div>
         </div>
         <div class="row">
@@ -48,23 +49,23 @@
                 <a class="btn btn-primary"
                    href="{% url 'app_run' app.pk %}"
                    role="button"
-                   aria-label="Run App">Run App</a>
+                   aria-label="{% trans "Run App" %}">{% trans "Run App" %}</a>
                 <a class="btn btn-danger"
                    href="{% url 'app_delete' app.pk %}"
                    role="button"
-                   aria-label="Delete App">Delete App</a>
+                   aria-label="{% trans "Delete App" %}">{% trans "Delete App" %}</a>
                 <a class="btn btn-secondary"
                    href="{% url 'app_list' %}"
                    role="button"
-                   aria-label="App List">App List</a>
+                   aria-label="{% trans "App List" %}">{% trans "App List" %}</a>
                 <a class="btn btn-secondary"
                    href="{% url 'index' %}"
                    role="button"
-                   aria-label="Home">Home</a>
+                   aria-label="{% trans "Home" %}">{% trans "Home" %}</a>
                 <a class="btn btn-secondary"
                    href="{% url 'logout' %}"
                    role="button"
-                   aria-label="Logout">Logout</a>
+                   aria-label="{% trans "Logout" %}">{% trans "Logout" %}</a>
             </div>
         </div>
     </div>
