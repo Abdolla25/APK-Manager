@@ -17,6 +17,7 @@ APK Manager is a Django-based web application designed to manage and evaluate An
 - [Running Tests](README.md#running-tests)
 - [Docker Setup](README.md#docker-setup)
 - [Project Structure](README.md#project-structure)
+- [Screenshots](README.md#screenshots)
 - [Contributing](README.md#contributing)
 - [License](README.md#license)
 
