@@ -149,7 +149,7 @@ volumes:
 
 2. Run the application:
 ```bash
-docker-compose up --build
+docker compose up --build
 ```
 
 # Project Structure
