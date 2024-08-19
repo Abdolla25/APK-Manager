@@ -96,7 +96,7 @@ CMD ["gunicorn", "--bind", ":8000", "apk_manager.wsgi:application", "--reload"]
 ```
 
 ## Docker Compose
-To run the project with PostgreSQL using Docker Compose:
+To run the project with MySQL using Docker Compose:
 
 1. Use the `docker-compose.yml` file included:
 ```yaml
